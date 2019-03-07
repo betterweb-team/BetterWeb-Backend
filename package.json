@@ -1,0 +1,22 @@
+{
+  "name": "betterweb-backend",
+  "version": "1.0.0",
+  "description": "Data fetch and model training for BetterWeb. For default models and data, check release page of this repository.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betterweb-team/BetterWeb-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betterweb-team/BetterWeb-Backend/issues"
+  },
+  "homepage": "https://github.com/betterweb-team/BetterWeb-Backend#readme",
+  "dependencies": {
+    "@postlight/mercury-parser": "^2.0.0"
+  }
+}
