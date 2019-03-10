@@ -1,5 +1,6 @@
 {
     "mode": "title_only",
     "article_count": 10000,
-    "log_file": "log.txt"
+    "log_file": "log.txt",
+    "output_file": "output.json"
 }

@@ -1,9 +1,13 @@
 const Mercury = require('@postlight/mercury-parser');
+const CollectorUtils = require('./collector_utils.js');
+const Deque = require('./deque.js');
+
 const fs = require('fs');
-const deque = require('./deque.js');
 
 const media_urls = require('./urls/media_urls.json');
 const config = require('./config.json');
+
+const HREFS_REGEX = /href="(.*?)"/g;
 
 /*
 * Configuration Options:
@@ -14,7 +18,18 @@ const config = require('./config.json');
 * log_file: Path to the log file
 */
 
-var log_file = fs.createWriteStream(config.log_file);
+var logFile = fs.createWriteStream(config.log_file);
+var output = {};
+
+/**
+ * Logger function
+ * @param {string} message Message to log
+ * @return {void}
+ */
+function log(message){
+    console.log(message);
+    logFile.write(message + '\n');
+}
 
 /**
  * This function uses a standard graph traversal algorithm (either BFS of DFS, tbd.) to crawl through a news source.
@@ -25,28 +40,72 @@ var log_file = fs.createWriteStream(config.log_file);
  * @return {void}
  */
 async function crawl(startUrl, urlMatch){
-    //
-}
+    var next = new Deque.Deque();
+    var vis = {};
+    var searchedURLs = 1;
 
-/**
- * Logger function
- * @param {string} message Message to log
- * @return {void}
- */
-function log(message){
-    console.log(message);
-    log_file.write(message + '\n');
+    /**
+     * Parses the given url and puts it into the visited array
+     * @param {string} url The URL to parse
+     * @return {Array} An array of the children of that url
+     */
+    async function parseDataFor(url){
+        let parseData = await Mercury.parse(url);
+        
+        if(config.mode == 'title_only'){
+            vis[url] = {
+                "title": parseData.title
+            }
+        }
+
+        var children = CollectorUtils.getMatches(parseData.content, HREFS_REGEX, 1).filter(
+            url => url.includes(urlMatch)
+        );
+        CollectorUtils.shuffle(children);
+
+        return children;
+    }
+
+    next.push(startUrl);
+    while(!next.empty()){
+        var cur = next.pop(true);
+
+        if(cur === null || cur === undefined)
+            continue;
+
+        log(`cur=${cur} start=${startUrl}`);
+
+        var children = await parseDataFor(cur);
+        for(var child in children){
+            child = children[child];
+
+            if(searchedURLs > config.article_count)
+                break;
+
+            if(!vis[child]){
+                next.push(child);
+                searchedURLs++;
+            }
+        }
+    }
+
+    return vis;
 }
 
 // Horribly un-js like isn't it?
-while(log_file.pending){}
+while(logFile.pending){}
 log(`Log file ready! Beginning collection...`);
 
 (async function(){
-    // Looping through all urls and attempting to crawl them
+    var ctr = 0;
     var urls = media_urls.media_urls;
     for(var url in urls){
-        log(`Attempting to crawl ${url}...`);
-        await crawl(urls[url][0].homepage, url);
+        log(` -- Attempting to crawl ${url}...`);
+        
+        var currOutput = await crawl(urls[url][0].homepage, url);
+        output[url] = currOutput;
     }
+
+    fs.writeFileSync(config.output_file, JSON.stringify(output));
+    console.log('Crawl complete!');
 })();
