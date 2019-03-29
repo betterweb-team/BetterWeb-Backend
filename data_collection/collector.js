@@ -9,17 +9,21 @@ const config = require('./config.json');
 
 const HREFS_REGEX = /href="(.*?)"/g;
 
-/*
+/**
 * Configuration Options:
 * 
 * mode: What data is collected.  Currently the modes are:
 *   - title_only: Only the title of each article is collected
 * article_count: For each news source, how many articles will be selected
 * log_file: Path to the log file
+* source_output_file: Output file with the results of the crawl grouped by which source they come from
+* training_output_file: Output file with the results of the crawl as a list, with each entry containing the data and bias value of the source
+* debug: Debug mode.  Among other things it restricts the amount of sources crawled to make testing faster
 */
 
 var logFile = fs.createWriteStream(config.log_file);
-var output = {};
+var sourceOutput = {};
+var trainingOutput = []
 
 /**
  * Logger function
@@ -47,23 +51,30 @@ async function crawl(startUrl, urlMatch){
     /**
      * Parses the given url and puts it into the visited array
      * @param {string} url The URL to parse
-     * @return {Array} An array of the children of that url
+     * @return {Array} An array of the children of that url.  If the request fails, `null` will be returned instead
      */
     async function parseDataFor(url){
-        let parseData = await Mercury.parse(url);
+        return new Promise(function(resolve, _){
+            Mercury.parse(url)
+                .then(parseData => {
+                    if(config.mode == 'title_only'){
+                        vis[url] = {
+                            "title": parseData.title
+                        };
+                    }
         
-        if(config.mode == 'title_only'){
-            vis[url] = {
-                "title": parseData.title
-            }
-        }
+                    var children = CollectorUtils.getMatches(parseData.content, HREFS_REGEX, 1).filter(
+                        url => url.includes(urlMatch)
+                    );
+                    CollectorUtils.shuffle(children);
 
-        var children = CollectorUtils.getMatches(parseData.content, HREFS_REGEX, 1).filter(
-            url => url.includes(urlMatch)
-        );
-        CollectorUtils.shuffle(children);
-
-        return children;
+                    resolve(children);
+                })
+                .catch(err => {
+                    log(`An error occured while sending the request: ${err}`);
+                    resolve(null);
+                });
+        });
     }
 
     next.push(startUrl);
@@ -73,9 +84,11 @@ async function crawl(startUrl, urlMatch){
         if(cur === null || cur === undefined)
             continue;
 
-        log(`cur=${cur} start=${startUrl}`);
+        log(`-- Currently at ${cur} (start=${startUrl})`);
 
         var children = await parseDataFor(cur);
+        if(children === null) continue;
+
         for(var child in children){
             child = children[child];
 
@@ -92,20 +105,30 @@ async function crawl(startUrl, urlMatch){
     return vis;
 }
 
+if(config.debug)
+    log('Debug mode is ON');
+
 // Horribly un-js like isn't it?
 while(logFile.pending){}
 log(`Log file ready! Beginning collection...`);
 
 (async function(){
-    var ctr = 0;
+    var ctr = 0; // Counter for debugging purposes
     var urls = media_urls.media_urls;
     for(var url in urls){
-        log(` -- Attempting to crawl ${url}...`);
+        log(`[ ==== ] Attempting to crawl ${url}... [ ==== ]`);
         
-        var currOutput = await crawl(urls[url][0].homepage, url);
-        output[url] = currOutput;
+        var currOutput = await crawl(urls[url][0].homepage, url), trainingData = Array.from(Object.values(currOutput));
+        sourceOutput[url] = currOutput;
+        for(var i = 0; i < trainingData.length; i++)
+            trainingOutput.push({data: trainingData[i], bias: urls[url][0].bias});
+
+        if(config.debug && ++ctr >= 7)
+            break;
     }
 
-    fs.writeFileSync(config.output_file, JSON.stringify(output));
-    console.log('Crawl complete!');
+    fs.writeFileSync(config.source_output_file, JSON.stringify(sourceOutput));
+    fs.writeFileSync(config.training_output_file, JSON.stringify(trainingOutput));
+
+    log('Crawl complete!');
 })();

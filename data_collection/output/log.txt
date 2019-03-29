@@ -1,0 +1,50 @@
+Debug mode is ON
+Log file ready! Beginning collection...
+[ ==== ] Attempting to crawl act.tv... [ ==== ]
+-- Currently at http://act.tv (start=http://act.tv)
+[ ==== ] Attempting to crawl addictinginfo.com... [ ==== ]
+-- Currently at http://addictinginfo.com (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/31/president-rearing-101-a-guide-to-coping-with-your-presidents-misbehavior/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/03/04/death-of-a-president-in-the-united-states-of-amnesia/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/28/republicans-attempt-to-intimidate-former-rnc-deputy-finance-chair-into-silence/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/14/top-republican-opens-the-senate-by-literally-praying-that-trump-will-sign-the-border-security-bill/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/11/former-trump-adviser-goes-down-in-flames-for-arguing-with-an-alexandria-ocasio-cortez-parody-account/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/21/the-nra-gets-taken-to-the-woodshed-over-worst-ever-mlk-day-message/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/25/trump-supporters-turn-on-potus-after-he-caves-on-shutdown-he-has-done-nothing/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/27/two-russian-bombers-escorted-away-from-us-coast-by-fighter-jets/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/02/new-york-inmates-trapped-without-heat-lights-during-polar-vortex/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/01/kellyanne-conway-cory-booker-is-a-sexist-for-running-against-women/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/28/more-than-1000-people-attend-funeral-of-unaccompanied-texas-veteran/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/29/the-capital-couples-club-roger-nydia-stone-organized-orgies-for-washington-power-players/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/30/sarah-palins-tweet-calling-stacey-abrams-is-a-literal-loser-hilariously-backfires/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/03/republican-senator-guilty-of-child-sex-trafficking-must-pay-125850-to-victim/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/03/04/oslo-police-fbi-investigating-forged-trump-nobel-prize-nominations/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/06/is-donald-trump-hiding-a-health-condition/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/26/what-if-donald-trump-is-not-the-president/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/06/the-internet-explodes-over-nancy-pelosis-sarcastic-clapback-at-the-state-of-the-union/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/17/foreign-based-hackers-who-stole-thousands-of-documents-from-sec-indicted/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/19/trump-kicks-of-the-weekend-by-throwing-himself-a-pity-party-over-talks-of-impeachment/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/cdn-cgi/l/email-protection (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/cdn-cgi/l/email-protection (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/17/foreign-based-hackers-who-stole-thousands-of-documents-from-sec-indicted/?fbclid=IwAR3oUNjI77g-zbNv6HBNQl-lojmXZlzwM4Da2DFgv6iMcMGqoHcQPur4Uvo (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/16/meet-the-illegals-they-are-probably-not-who-you-think/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/29/the-capital-couples-club-roger-nydia-stone-organized-orgies-for-washington-power-players/?fbclid=IwAR0xz_12wldnh3qt0qiBHNTUnxBAEOkEiornuHOtNBzX7-RzeR6SivpPOgY (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2016/11/01/trump-threatened-to-make-the-13-year-old-girl-he-raped-disappear-and-kill-her-family-witness/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/29/the-capital-couples-club-roger-nydia-stone-organized-orgies-for-washington-power-players/?fbclid=IwAR0xz_12wldnh3qt0qiBHNTUnxBAEOkEiornuHOtNBzX7-RzeR6SivpPOgY (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/06/is-donald-trump-hiding-a-health-condition/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/02/06/is-donald-trump-hiding-a-health-condition/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2015/12/13/portrait-of-a-con-donald-trumps-inflated-self-worth-video/ (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/17/foreign-based-hackers-who-stole-thousands-of-documents-from-sec-indicted/?fbclid=IwAR1QrdXUHzLxGN3bM2p7qf3l3rNM18eZKm3f2mVysCJjHkkhYuxrSmjVV_4 (start=http://addictinginfo.com)
+-- Currently at http://addictinginfo.com/2019/01/16/meet-the-illegals-they-are-probably-not-who-you-think/?fbclid=IwAR1N4_hth2_1MOfT7KTc92CH5RmOvvm_QiHxe-z1tun4dwFVZ0NlUycXbPk (start=http://addictinginfo.com)
+[ ==== ] Attempting to crawl advocate.com... [ ==== ]
+-- Currently at http://www.advocate.com/ (start=http://www.advocate.com/)
+[ ==== ] Attempting to crawl akkadiantimes.com... [ ==== ]
+-- Currently at http://akkadiantimes.com (start=http://akkadiantimes.com)
+-- Currently at https://www.domainmarket.com/cart/akkadiantimes.com (start=http://akkadiantimes.com)
+-- Currently at https://www.domainmarket.com/cart/akkadiantimes.com (start=http://akkadiantimes.com)
+[ ==== ] Attempting to crawl afj.org... [ ==== ]
+[ ==== ] Attempting to crawl allthatsfab.com... [ ==== ]
+-- Currently at http://www.allthatsfab.com/ (start=http://www.allthatsfab.com/)
+[ ==== ] Attempting to crawl alternet.org... [ ==== ]
+-- Currently at http://www.alternet.org/ (start=http://www.alternet.org/)
+Crawl complete!
