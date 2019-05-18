@@ -2,7 +2,6 @@
     "mode": "title_only",
     "article_count": 10000,
     "log_file": "output/log.txt",
-    "source_output_file": "output/source_output.json",
-    "training_output_file": "output/training_output.json",
+    "output_file": "output/output.json",
     "debug": true
 }
